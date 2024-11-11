@@ -1,0 +1,21 @@
+client -> server
+nextQuestion // ask for next question
+submitAnswer (answer) // ask for judging the answer
+changeUsername (username) // 
+
+server -> client
+
+updateLeaderboard (data) // change leaderboard
+updateQuestion (e: str //
+
+answerStatus (status)
+{
+    answer: str // idle accept wrong beforeStart
+    points: int
+}
+
+updateState (status) //
+{
+    delta,
+    type
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Race</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* background-image: url('/img/background.jpg'); */
+            background-size: cover;
+            margin: 0;
+        }
+        .main-container {
+            display: flex;
+            max-width: 2000px;
+            width: 100%;
+            margin: 0 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        .game-container {
+            width: 300px;
+            padding: 15px;
+            text-align: center;
+            flex: 1;
+            margin-right: 20px;
+        }
+        .question {
+            font-size: 28px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+            margin:auto;
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 100%;
+            max-width: 1000px;
+        }
+        .input-field {
+            font-size: 20px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 90%;
+            max-width: 500px;
+        }
+        .timer, .score {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .status-btn {
+            font-size: 18px;
+            padding: 10px 20px;
+            background: gray;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .card {
+            width: 300px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            border: 2px solid #ccc;
+        }
+        .card h2 {
+            text-align: center;
+            margin-top: 0;
+            padding: 10px;
+            background-color: #fff;
+            border-bottom: 2px solid #ccc;
+        }
+        .leaderboard{
+            height: 320;
+            max-height: 320px;
+            overflow-y: auto;
+        }
+        .leaderboard-item {
+            background-color: #f8f8f8;
+            padding: 8px;
+            margin-bottom: 4px;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .leaderboard-item span {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="card">
+            <h2>Profile</h2>
+            <input type="text" id="username" class="input-field" oninput="changeUsername(this.value)" disabled>
+        </div>
+        <div class="game-container">
+            <h1>Math Race</h1>
+            <div class="timer" id="timer">Waiting for players...</div>
+            <div class="score" id="score">...</div>
+            <button class="status-btn" id="statusBtn" disabled>#</button>
+            <div class="question" id="question">...</div>
+            <input type="text" id="answer" class="input-field" placeholder="..." disabled>
+        </div>
+        <div class="card">
+            <h2>Players</h2>
+            <div class="leaderboard" id="leaderboard">
+            </div>
+        </div>
+    </div>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="/client/ui.js"></script>
+    <script src="/client/events.js"></script>
+</body>
+</html>
