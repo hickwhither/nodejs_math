@@ -8,7 +8,7 @@ const server = createServer(app);
 app.get('/', (req, res) => {res.sendFile(__dirname + '/client/index.html');})
 app.use('/client', express.static(__dirname + '/client'));
 
-server.listen(80, () => {
+server.listen(3000, () => {
     var host = server.address().address;
     var port = server.address().port;
     console.log("Listening at http://%s:%s", host, port);
