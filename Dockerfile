@@ -1,20 +1,13 @@
 # Use the official Node.js image as the base image
 FROM node:22.13.1-alpine3.20
 
-# Set the working directory
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
-
-# Install dependencies
+COPY package.json /usr/src/app/
 RUN npm install
 
-# Copy the rest of the application code
-COPY . .
+COPY . /usr/src/app
 
-# Expose the port the app runs on
 EXPOSE 3000
-
-# Command to run the application
-CMD ["node", "server.js"]
+CMD [ "npm", "start" ]
