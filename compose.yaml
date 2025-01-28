@@ -15,11 +15,8 @@ services:
       NODE_ENV: production
     ports:
       - 3000:3000
-    deploy:
-      resources:
-        limits:
-            memory: 100M
-            cpus: 0.001
+    cpus: 0.01
+    mem_limit: 100m
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
